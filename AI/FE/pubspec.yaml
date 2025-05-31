@@ -1,0 +1,74 @@
+name: gust_flutter
+description: Flutter aplicație pentru monitorizarea consumului de zahăr - GUST backend integration
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # HTTP & API
+  dio: ^5.3.2
+  retrofit: ^4.0.3
+  json_annotation: ^4.8.1
+  
+  # State Management
+  flutter_riverpod: ^2.4.0
+  
+  # Navigation
+  go_router: ^10.1.2
+  
+  # Storage
+  flutter_secure_storage: ^9.0.0
+  shared_preferences: ^2.2.2
+  
+  # UI & Charts
+  fl_chart: ^0.64.0
+  cached_network_image: ^3.3.0
+  
+  # Utils
+  intl: ^0.18.1
+  freezed_annotation: ^2.4.1
+  connectivity_plus: ^4.0.2
+  path_provider: ^2.1.1
+  file_picker: ^6.1.1
+  permission_handler: ^11.0.0
+  url_launcher: ^6.1.14
+  image_picker: ^1.0.4
+  
+  # Validation
+  formz: ^0.6.1
+  
+  # Icons
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  # Code generation
+  build_runner: ^2.4.7
+  json_serializable: ^6.7.1
+  retrofit_generator: ^8.0.4
+  freezed: ^2.4.6
+  
+  # Linting
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  # Assets (când vor fi adăugate)
+  # assets:
+  #   - images/
+  #   - icons/
+
+  # Fonts (când vor fi personalizate)
+  # fonts:
+  #   - family: Roboto
+  #     fonts:
+  #       - asset: fonts/Roboto-Regular.ttf
