@@ -16,9 +16,9 @@ public class CorsGlobalConfig {
         CorsConfiguration config = new CorsConfiguration();
 
         config.setAllowedOrigins(List.of("*")); // Allow all origins
-        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
-        config.setAllowedHeaders(List.of("*"));
-        config.setAllowCredentials(false); // Set to true only if you control the origin and send cookies
+        config.setAllowedMethods(List.of("*")); // Allow all methods
+        config.setAllowedHeaders(List.of("*")); // Allow all headers
+        config.setAllowCredentials(false); // Only allow credentials if you really need it
 
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

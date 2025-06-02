@@ -28,7 +28,9 @@ public class AuthService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER.name())
                 .build();
-
+        if (user.getDailySugarGoal() == null) {
+            user.setDailySugarGoal(75);
+        }
         userRepository.save(user);
 
         String token = jwtService.generateToken(user);

@@ -1,13 +1,16 @@
 package gust.controller;
 
 import gust.dto.AnalyticsResponse;
+import gust.model.User;
 import gust.service.AnalyticsService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -17,40 +20,56 @@ public class AnalyticsController {
 
     private final AnalyticsService analyticsService;
 
-    // ✅ Emotion summary by month
     @GetMapping("/emotion-summary")
     public ResponseEntity<List<AnalyticsResponse>> getEmotionSummary(
             @RequestParam int month,
-            @RequestParam int year
+            @RequestParam int year,
+            @AuthenticationPrincipal User user
     ) {
-        return ResponseEntity.ok(analyticsService.getEmotionSummary(month, year));
+        return ResponseEntity.ok(analyticsService.getEmotionSummary(month, year, user));
     }
 
-    // ✅ Daily trend in a month
     @GetMapping("/daily-trend")
     public ResponseEntity<List<AnalyticsResponse>> getDailyTrend(
             @RequestParam int month,
-            @RequestParam int year
+            @RequestParam int year,
+            @AuthenticationPrincipal User user
     ) {
-        return ResponseEntity.ok(analyticsService.getDailyTrend(month, year));
+        return ResponseEntity.ok(analyticsService.getDailyTrend(month, year, user));
     }
 
-    // ✅ Avg sugar by time of day
     @GetMapping("/time-of-day-pattern")
-    public ResponseEntity<List<AnalyticsResponse>> getTimeOfDayPattern() {
-        return ResponseEntity.ok(analyticsService.getTimeOfDayPattern());
+    public ResponseEntity<List<AnalyticsResponse>> getTimeOfDayPattern(
+            @RequestParam(required = false) Integer month,
+            @RequestParam(required = false) Integer year,
+            @RequestParam(required = false) String date,
+            @AuthenticationPrincipal User user
+    ) {
+        if (date != null && !date.isBlank()) {
+            return ResponseEntity.ok(analyticsService.getTimeOfDayPatternForDay(LocalDate.parse(date), user));
+        } else if (month != null && year != null) {
+            return ResponseEntity.ok(analyticsService.getTimeOfDayPatternForMonth(month, year, user));
+        } else {
+            LocalDate now = LocalDate.now();
+            return ResponseEntity.ok(analyticsService.getTimeOfDayPatternForMonth(now.getMonthValue(), now.getYear(), user));
+        }
     }
 
-    // ✅ Monthly sugar total
     @GetMapping("/monthly-total")
-    public ResponseEntity<List<AnalyticsResponse>> getMonthlyTotals() {
-        return ResponseEntity.ok(analyticsService.getMonthlyTotals());
+    public ResponseEntity<List<AnalyticsResponse>> getMonthlyTotals(
+            @AuthenticationPrincipal User user
+    ) {
+        return ResponseEntity.ok(analyticsService.getMonthlyTotals(user));
     }
 
-    // ✅ CSV export
+    // Export logs for the authenticated user, filtered by month/year if provided
     @GetMapping("/export/csv")
-    public ResponseEntity<byte[]> exportCsv() {
-        byte[] csvBytes = analyticsService.exportCsv();
+    public ResponseEntity<byte[]> exportCsv(
+            @AuthenticationPrincipal User user,
+            @RequestParam(required = false) Integer month,
+            @RequestParam(required = false) Integer year
+    ) {
+        byte[] csvBytes = analyticsService.exportCsv(user, month, year);
         return ResponseEntity.ok()
                 .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=sugar_log_export.csv")
                 .contentType(MediaType.TEXT_PLAIN)

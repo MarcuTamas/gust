@@ -8,8 +8,6 @@ import gust.model.User;
 import gust.repository.SugarLogRepository;
 import gust.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -22,66 +20,65 @@ public class SugarLogService {
 
     private final SugarLogRepository sugarLogRepository;
     private final SugarLogMapper sugarLogMapper;
-    private final UserRepository userRepository;   // ← inject this
+    private final UserRepository userRepository;
 
-    public SugarLogResponse addLog(SugarLogRequest request) {
-        // 1) map incoming DTO to an entity (no user yet)
+    // Create log for current user
+    public SugarLogResponse addLog(User user, SugarLogRequest request) {
         SugarLog entity = sugarLogMapper.toEntity(request);
-
-        // 2) get the authenticated principal's username (email)
-        String email = SecurityContextHolder.getContext()
-                .getAuthentication()
-                .getName();
-
-        // 3) load User from DB and attach
-        User user = userRepository.findByEmail(email)
-                .orElseThrow(() ->
-                        new UsernameNotFoundException("User not found: " + email)
-                );
         entity.setUser(user);
 
-        // 4) persist
         SugarLog saved = sugarLogRepository.save(entity);
         return sugarLogMapper.toResponse(saved);
     }
 
-    public List<SugarLogResponse> getAllLogs() {
-        return sugarLogRepository.findAll()
+    // Get all logs for current user
+    public List<SugarLogResponse> getAllLogs(User user) {
+        return sugarLogRepository.findByUserId(user.getId())
                 .stream()
                 .map(sugarLogMapper::toResponse)
                 .collect(Collectors.toList());
     }
 
-    public List<SugarLogResponse> getLogsByDate(LocalDate date) {
-        return sugarLogRepository.findByDate(date)
+    // Get logs by date for current user
+    public List<SugarLogResponse> getLogsByDate(User user, LocalDate date) {
+        return sugarLogRepository.findByUserIdAndDate(user.getId(), date)
                 .stream()
                 .map(sugarLogMapper::toResponse)
                 .collect(Collectors.toList());
     }
 
-    public SugarLogResponse getLogById(Long id) {
+    // Get log by ID for current user only
+    public SugarLogResponse getLogById(User user, Long id) {
         SugarLog log = sugarLogRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("SugarLog not found"));
+        if (!log.getUser().getId().equals(user.getId())) {
+            throw new RuntimeException("Access denied");
+        }
         return sugarLogMapper.toResponse(log);
     }
 
-    public SugarLogResponse updateLog(Long id, SugarLogRequest request) {
-        // you may also want to check author here...
+    // Update log (only if it belongs to current user)
+    public SugarLogResponse updateLog(User user, Long id, SugarLogRequest request) {
         SugarLog existing = sugarLogRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("SugarLog not found"));
+        if (!existing.getUser().getId().equals(user.getId())) {
+            throw new RuntimeException("Access denied");
+        }
 
         SugarLog updated = sugarLogMapper.toEntity(request);
         updated.setId(existing.getId());
-        // preserve the owner
         updated.setUser(existing.getUser());
 
         SugarLog saved = sugarLogRepository.save(updated);
         return sugarLogMapper.toResponse(saved);
     }
 
-    public void deleteLog(Long id) {
-        if (!sugarLogRepository.existsById(id)) {
-            throw new RuntimeException("SugarLog not found");
+    // Delete log (only if it belongs to current user)
+    public void deleteLog(User user, Long id) {
+        SugarLog log = sugarLogRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("SugarLog not found"));
+        if (!log.getUser().getId().equals(user.getId())) {
+            throw new RuntimeException("Access denied");
         }
         sugarLogRepository.deleteById(id);
     }

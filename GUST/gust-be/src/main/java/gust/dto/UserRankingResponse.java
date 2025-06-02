@@ -6,6 +6,6 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class UserRankingResponse {
-    private String username;
-    private int totalSugarGrams;
+    private String name;   // <-- full name!
+    private int score;
 }

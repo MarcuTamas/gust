@@ -36,7 +36,7 @@ public class CommunityService {
 
         return filteredLogs.stream()
                 .collect(Collectors.groupingBy(
-                        log -> log.getUser().getUsername(),  // 🛠 Assumes SugarLog has getUser()
+                        log -> log.getUser().getFullName(),  // <-- Use full name instead of username/email
                         Collectors.summingInt(SugarLog::getSugarGrams)
                 ))
                 .entrySet().stream()

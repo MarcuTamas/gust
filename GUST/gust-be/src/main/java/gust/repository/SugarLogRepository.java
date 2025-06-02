@@ -9,11 +9,33 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-// gust.repository.SugarLogRepository
-public interface SugarLogRepository extends JpaRepository<SugarLog,Long> {
+public interface SugarLogRepository extends JpaRepository<SugarLog, Long> {
     List<SugarLog> findByDate(LocalDate date);
-    // fetch only the dates (or full entities) for a user, newest-first
+
     List<SugarLog> findByUserOrderByDateDesc(User user);
+
+    List<SugarLog> findByUserOrderByDateAsc(User user);
+
+    List<SugarLog> findByUser(User user);
+
+    List<SugarLog> findByUserAndDate(User user, LocalDate date);
+
+    // For analytics: all logs for user in a month/year
+    @Query("""
+      select s from SugarLog s
+      where s.user = :user
+      and month(s.date) = :month
+      and year(s.date) = :year
+    """)
+    List<SugarLog> findByUserAndMonthAndYear(
+            @Param("user") User user,
+            @Param("month") int month,
+            @Param("year") int year);
+
+    // Optional: all logs for a userId (legacy)
+    List<SugarLog> findByUserId(Long userId);
+
+    List<SugarLog> findByUserIdAndDate(Long userId, LocalDate date);
 
     @Query("""
       select distinct s.date

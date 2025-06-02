@@ -23,18 +23,29 @@ public class StreakService {
         if (dates.isEmpty()) {
             return 0;
         }
-
-        int streak = 0;
+        dates.sort((a, b) -> b.compareTo(a)); // Sort descending: most recent first
         LocalDate today = LocalDate.now();
-        for (LocalDate d : dates) {
-            // for streak == 0 check if d == today,
-            // for streak == 1 check if d == today.minusDays(1), etc.
-            if (d.equals(today.minusDays(streak))) {
+
+        // If latest log is not today, streak is zero
+        if (!dates.get(0).equals(today)) {
+            return 0;
+        }
+
+        int streak = 1;
+        LocalDate prev = today;
+
+        // Start from the second most recent
+        for (int i = 1; i < dates.size(); i++) {
+            LocalDate date = dates.get(i);
+            if (date.equals(prev.minusDays(1))) {
                 streak++;
+                prev = date;
             } else {
+                // If there is a gap, break
                 break;
             }
         }
         return streak;
     }
+
 }

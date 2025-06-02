@@ -29,6 +29,12 @@ public class User implements UserDetails {
     private String role;
     private int streakDays;
 
+    // --- NEW FIELD FOR DAILY SUGAR GOAL ---
+    @Column(nullable = false)
+    private Integer dailySugarGoal = 75;
+
+    // --- END NEW FIELD ---
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(() -> role);
@@ -45,4 +51,8 @@ public class User implements UserDetails {
     @Override public boolean isAccountNonLocked()   { return true; }
     @Override public boolean isCredentialsNonExpired() { return true; }
     @Override public boolean isEnabled()            { return true; }
+
+    // --- Getter and Setter for dailySugarGoal (Lombok @Getter/@Setter adds these) ---
+    // public Integer getDailySugarGoal() { return dailySugarGoal; }
+    // public void setDailySugarGoal(Integer goal) { this.dailySugarGoal = goal; }
 }
