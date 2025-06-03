@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUST - Intelligent Sugar Tracking Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="presentation-container">
+        <!-- Navigation -->
+        <nav class="presentation-nav">
+            <div class="nav-content">
+                <div class="nav-left">
+                    <h3>GUST Presentation</h3>
+                </div>
+                <div class="nav-center">
+                    <div class="slide-counter">
+                        <span id="current-slide">1</span> / <span id="total-slides">11</span>
+                    </div>
+                </div>
+                <div class="nav-right">
+                    <button class="btn btn--secondary btn--sm" id="prev-btn">← Previous</button>
+                    <button class="btn btn--primary btn--sm" id="next-btn">Next →</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Slide 1: Title -->
+        <section class="slide active" id="slide-1">
+  <div class="slide-content title-slide">
+    <div class="title-hero">
+      <div class="app-logo">
+        <div class="logo-icon">🍭</div>
+        <h1>GUST</h1>
+      </div>
+      <h2>Intelligent Sugar Tracking Application</h2>
+      <p class="tagline">Monitoring Sugar Intake with Emotional Context</p> 
+    </div>
+    <span class="innovation-lab-badge">
+      Cybersecurity - Innovation management
+    </span>
+  </div>
+    <div class="status-badge" style="text-align: center; padding-bottom: 1%;">
+      <span class="status status--success">MVP Ready v0.0.1.alfa</span>
+    </div>
+      <div style="text-align: center; color: grey;">
+      <p>2025</p>                
+    </div>
+</section>
+
+
+        <!-- Slide 2: Overview -->
+        <section class="slide" id="slide-2">
+            <div class="slide-content">
+                <h2>Application Overview</h2>
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <div class="card-icon">🎯</div>
+                        <h3>Mission</h3>
+                        <p>Revolutionize health tracking by combining sugar intake monitoring with emotional and contextual data</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">💡</div>
+                        <h3>Innovation</h3>
+                        <p>First-of-its-kind emotion-aware health tracking system with location and craving context</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">📱</div>
+                        <h3>Platform</h3>
+                        <p>Cross-platform mobile application with robust backend infrastructure</p>
+                    </div>
+                    <div class="overview-card">
+                        <div class="card-icon">🎖️</div>
+                        <h3>Impact</h3>
+                        <p>Targeting 537 million adults with diabetes worldwide and health-conscious individuals</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 3: Technical Architecture -->
+        <section class="slide" id="slide-3">
+            <div class="slide-content">
+                <h2>Technical Architecture</h2>
+                <div class="architecture-diagram">
+                    <div class="arch-layer">
+                        <h3>Frontend Layer</h3>
+                        <div class="tech-box flutter">
+                            <div class="tech-icon">📱</div>
+                            <div>
+                                <h4>Flutter Mobile App</h4>
+                                <p>Cross-platform Dart application with rich UI components</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arch-connection">⬇️</div>
+                    <div class="arch-layer">
+                        <h3>Backend Layer</h3>
+                        <div class="tech-box spring">
+                            <div class="tech-icon">☕</div>
+                            <div>
+                                <h4>Spring Boot 3.2.5</h4>
+                                <p>Java-based REST API with JWT authentication</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="arch-connection">⬇️</div>
+                    <div class="arch-layer">
+                        <h3>Database Layer</h3>
+                        <div class="tech-box postgres">
+                            <div class="tech-icon">🗃️</div>
+                            <div>
+                                <h4>PostgreSQL</h4>
+                                <p>Relational database for user data and analytics</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 4: Features Showcase -->
+        <section class="slide" id="slide-4">
+            <div class="slide-content">
+                <h2>Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Smart Tracking</h3>
+                        <p>Daily sugar intake monitoring with visual progress indicators and 7-day trend analysis</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">😊</div>
+                        <h3>Emotional Context</h3>
+                        <p>Revolutionary emotion-aware logging system that tracks feelings during consumption</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔥</div>
+                        <h3>Streak System</h3>
+                        <p>Gamified daily goal achievement with streak tracking and community rankings</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📍</div>
+                        <h3>Context Awareness</h3>
+                        <p>Location-based logging and craving detection for comprehensive health insights</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📈</div>
+                        <h3>Advanced Analytics</h3>
+                        <p>Detailed reporting with CSV export and trend visualization capabilities</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">👥</div>
+                        <h3>Community Drive</h3>
+                        <p>Social motivation through rankings and community-based goal achievement</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 5: Innovation Highlights -->
+        <section class="slide" id="slide-5">
+            <div class="slide-content">
+                <h2>Innovation Highlights</h2>
+                <div class="innovation-list">
+                    <div class="innovation-item">
+                        <div class="innovation-badge">🧠</div>
+                        <div class="innovation-content">
+                            <h3>Emotion-Aware Health Tracking</h3>
+                            <p>First health app to correlate emotional states with dietary choices, providing unprecedented insights into eating behaviors</p>
+                        </div>
+                    </div>
+                    <div class="innovation-item">
+                        <div class="innovation-badge">🌍</div>
+                        <div class="innovation-content">
+                            <h3>Context-Rich Logging System</h3>
+                            <p>Advanced location and craving detection system that builds comprehensive consumption profiles</p>
+                        </div>
+                    </div>
+                    <div class="innovation-item">
+                        <div class="innovation-badge">⚡</div>
+                        <div class="innovation-content">
+                            <h3>Real-Time Streak Calculation</h3>
+                            <p>Dynamic goal tracking with instant feedback and motivation through gamification elements</p>
+                        </div>
+                    </div>
+                    <div class="innovation-item">
+                        <div class="innovation-badge">🤝</div>
+                        <div class="innovation-content">
+                            <h3>Community-Driven Motivation</h3>
+                            <p>Social health tracking with privacy-focused rankings and peer motivation systems</p>
+                        </div>
+                    </div>
+                    <div class="innovation-item">
+                        <div class="innovation-badge">📱</div>
+                        <div class="innovation-content">
+                            <h3>Cross-Platform Excellence</h3>
+                            <p>Single codebase Flutter application delivering native performance across all platforms</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 6: Business Value -->
+        <section class="slide" id="slide-6">
+            <div class="slide-content">
+                <h2>Business Value Proposition</h2>
+                <div class="business-grid">
+                    <div class="business-section">
+                        <h3>🎯 Target Market</h3>
+                        <ul>
+                            <li>537 million adults with diabetes worldwide</li>
+                            <li>Health-conscious individuals</li>
+                            <li>Fitness enthusiasts and nutrition trackers</li>
+                            <li>Healthcare providers and wellness programs</li>
+                        </ul>
+                    </div>
+                    <div class="business-section">
+                        <h3>💰 Monetization Strategy</h3>
+                        <ul>
+                            <li>Freemium model with advanced analytics</li>
+                            <li>Healthcare provider licensing</li>
+                            <li>Nutrition brand integration partnerships</li>
+                            <li>Premium reporting and insights</li>
+                            <li>Wearable device integration subscriptions</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="value-proposition">
+                    <h3>🏆 Unique Competitive Advantages</h3>
+                    <div class="advantages-grid">
+                        <div class="advantage">
+                            <strong>Emotional Intelligence:</strong> Only app tracking emotional context
+                        </div>
+                        <div class="advantage">
+                            <strong>Comprehensive Logging:</strong> Location, craving, and context awareness
+                        </div>
+                        <div class="advantage">
+                            <strong>Community Focus:</strong> Social motivation without privacy compromise
+                        </div>
+                        <div class="advantage">
+                            <strong>Clinical Ready:</strong> Healthcare provider integration potential
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 7: Technology Stack -->
+        <section class="slide" id="slide-7">
+            <div class="slide-content">
+                <h2>Technology Stack</h2>
+                <div class="tech-stack-grid">
+                    <div class="tech-category">
+                        <h3>Mobile Frontend</h3>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <span class="tech-badge flutter">Flutter</span>
+                                <span>Cross-platform framework</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-badge dart">Dart</span>
+                                <span>Programming language</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Backend Services</h3>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <span class="tech-badge java">Java</span>
+                                <span>Spring Boot 3.2.5</span>
+                            </div>
+                            <div class="tech-item">
+                                <span class="tech-badge spring">Spring Security</span>
+                                <span>JWT Authentication</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Database & Storage</h3>
+                        <div class="tech-items">
+                            <div class="tech-item">
+                                <span class="tech-badge postgres">PostgreSQL</span>
+                                <span>Primary database</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-category">
+                        <h3>Key Controllers</h3>
+                        <div class="tech-items">
+                            <div class="controller-item">AuthController - User management</div>
+                            <div class="controller-item">SugarLogController - Intake tracking</div>
+                            <div class="controller-item">AnalyticsController - Data insights</div>
+                            <div class="controller-item">CommunityController - Social features</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 8: Demo Screenshots -->
+        <section class="slide" id="slide-8">
+            <div class="slide-content">
+                <h2>Application Interface</h2>
+                <div class="demo-grid">
+                    <div class="demo-phone">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <div class="screen-header">
+                                    <h4>Login Screen</h4>
+                                </div>
+                                <div class="screen-content">
+                                    <div class="app-logo-small">🍭 GUST</div>
+                                    <div class="login-form">
+                                        <div class="input-mock">Email</div>
+                                        <div class="input-mock">Password</div>
+                                        <div class="btn-mock primary">Sign In</div>
+                                        <div class="link-mock">Create Account</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>User Authentication</p>
+                    </div>
+                    <div class="demo-phone">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <div class="screen-header">
+                                    <h4>Dashboard</h4>
+                                </div>
+                                <div class="screen-content">
+                                    <div class="dashboard-stats">
+                                        <div class="stat-item">
+                                            <div class="stat-value">45g</div>
+                                            <div class="stat-label">Today</div>
+                                        </div>
+                                        <div class="stat-item">
+                                            <div class="stat-value">75g</div>
+                                            <div class="stat-label">Goal</div>
+                                        </div>
+                                    </div>
+                                    <div class="progress-mock"></div>
+                                    <div class="chart-mock">📊 7-day trend</div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Daily Overview</p>
+                    </div>
+                    <div class="demo-phone">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <div class="screen-header">
+                                    <h4>Sugar Log</h4>
+                                </div>
+                                <div class="screen-content">
+                                    <div class="log-form">
+                                        <div class="input-mock">Amount (grams)</div>
+                                        <div class="input-mock">Emotional State</div>
+                                        <div class="input-mock">Location</div>
+                                        <div class="checkbox-mock">☑️ Had craving</div>
+                                        <div class="btn-mock primary">Log Entry</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Context-Rich Logging</p>
+                    </div>
+                    <div class="demo-phone">
+                        <div class="phone-frame">
+                            <div class="phone-screen">
+                                <div class="screen-header">
+                                    <h4>Analytics</h4>
+                                </div>
+                                <div class="screen-content">
+                                    <div class="analytics-charts">
+                                        <div class="chart-mock small">Weekly Trends</div>
+                                        <div class="chart-mock small">Emotions</div>
+                                        <div class="export-mock">📄 Export CSV</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p>Advanced Analytics</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 9: Market Opportunity -->
+        <section class="slide" id="slide-9">
+            <div class="slide-content">
+                <h2>Market Opportunity</h2>
+                <div class="market-stats">
+                    <div class="market-stat">
+                        <div class="stat-number">537M</div>
+                        <div class="stat-description">Adults with diabetes worldwide</div>
+                    </div>
+                    <div class="market-stat">
+                        <div class="stat-number">$15.8B</div>
+                        <div class="stat-description">Digital health market size</div>
+                    </div>
+                    <div class="market-stat">
+                        <div class="stat-number">73%</div>
+                        <div class="stat-description">Users want emotional health tracking</div>
+                    </div>
+                </div>
+                <div class="market-trends">
+                    <h3>📈 Market Trends</h3>
+                    <div class="trends-grid">
+                        <div class="trend-item">
+                            <strong>Rising Health Consciousness:</strong> Post-pandemic focus on preventive healthcare
+                        </div>
+                        <div class="trend-item">
+                            <strong>Digital Health Adoption:</strong> 87% increase in health app usage
+                        </div>
+                        <div class="trend-item">
+                            <strong>Diabetes Management:</strong> Growing need for comprehensive tracking solutions
+                        </div>
+                        <div class="trend-item">
+                            <strong>Emotional Wellness:</strong> Integration of mental and physical health tracking
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 10: Investment & Growth -->
+        <section class="slide" id="slide-10">
+            <div class="slide-content">
+                <h2>Investment & Growth Roadmap</h2>
+                <div class="roadmap-timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker current">Q2 2025</div>
+                        <div class="timeline-content">
+                            <h3>Current Status</h3>
+                            <ul>
+                                <li>Production-ready application</li>
+                                <li>Full feature set implemented</li>
+                                <li>User testing completed</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">Q3 2025</div>
+                        <div class="timeline-content">
+                            <h3>Phase 1 - Market Entry</h3>
+                            <ul>
+                                <li>App store launch</li>
+                                <li>Initial user acquisition</li>
+                                <li>Machine learning integration</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">Q4 2025</div>
+                        <div class="timeline-content">
+                            <h3>Phase 2 - Expansion</h3>
+                            <ul>
+                                <li>Wearable device integration</li>
+                                <li>Barcode scanning features</li>
+                                <li>Healthcare partnerships</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2026</div>
+                        <div class="timeline-content">
+                            <h3>Phase 3 - Scale</h3>
+                            <ul>
+                                <li>AI-powered recommendations</li>
+                                <li>Global market expansion</li>
+                                <li>B2B healthcare solutions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide 11: Contact/Next Steps -->
+        <section class="slide" id="slide-11">
+            <div class="slide-content">
+                <h2>Next Steps</h2>
+                <div class="next-steps-content">
+                    <div class="call-to-action">
+                        <h3>🚀 Ready for Innovation Lab Partnership</h3>
+                        <p>GUST represents a breakthrough in health technology, combining technical excellence with market opportunity</p>
+                    </div>
+                    <div class="steps-grid">
+                        <div class="step-card">
+                            <div class="step-number">1</div>
+                            <h4>Technical Review</h4>
+                            <p>Explore the complete codebase and architecture</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">2</div>
+                            <h4>Market Validation</h4>
+                            <p>Pilot program with healthcare partners</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-number">3</div>
+                            <h4>Investment Discussion</h4>
+                            <p>Funding for market entry and scaling</p>
+                        </div>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-details">
+                            <p><strong>Project:</strong> GUST Sugar Tracking Application</p>
+                            <p><strong>Status:</strong> Production Ready</p>
+                            <p><strong>Repository:</strong> github.com/MarcuTamas/gust</p>
+                        </div>
+                    </div>
+                    <div class="final-cta">
+                        <button class="btn btn--primary btn--lg">Schedule Demo</button>
+                        <button class="btn btn--secondary btn--lg">View Source Code</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
